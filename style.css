@@ -40,6 +40,9 @@ body, html {
   flex-direction: column; /* Keeps elements stacked vertically */
   justify-content: flex-start; /* Aligns content to the top by default */
   z-index: 1;
+  /* font-family: 'Quicksand', sans-serif; */
+  font-family: 'Quicksand', sans-serif;
+
 }
 
 .logo {
@@ -53,6 +56,12 @@ h1 {
   color: #111;
   font-weight: 700;
   margin-top: 200px; 
+  /* font-family: 'Poppins', sans-serif;
+  font-family: 'Quicksand', sans-serif; */
+  /* font-family: 'Helvetica Neue', sans-serif;
+   */
+   font-family: 'Quicksand', sans-serif;
+
 
   /* font-size: 2rem;
   color: #111;
@@ -176,19 +185,52 @@ h1 {
 .bubble {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #ccf, #aaf, #88e);
-  opacity: 0.7;
-  animation: floatBubble 10s infinite ease-in-out;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(6px);
+  box-shadow:
+    inset 0 0 8px rgba(255, 255, 255, 0.4),
+    0 0 12px rgba(255, 255, 255, 0.1);
+  opacity: 0.6;
+  animation: 
+    floatBubble 6s infinite ease-in-out,
+    wobble 3s infinite ease-in-out,
+    drift 5s infinite ease-in-out,
+    shimmer 5s infinite ease-in-out;
   z-index: -1;
 }
 
 .b1 { width: 80px; height: 80px; top: 10%; left: 20%; animation-delay: 0s; }
 .b2 { width: 60px; height: 60px; top: 40%; left: 70%; animation-delay: 3s; }
 .b3 { width: 100px; height: 100px; top: 60%; left: 10%; animation-delay: 5s; }
-.b4 { width: 50px; height: 50px; top: 30%; left: 50%; animation-delay: 7s; }
+.b4 { width: 50px; height: 50px; top: 30%; left: 50%; animation-delay: 0s; }
+.b5 { width: 90px; height: 90px; top: 20%; left: 80%; animation-delay: 1s; }
+.b6 { width: 70px; height: 70px; top: 50%; left: 30%; animation-delay: 2.5s; }
+.b7 { width: 55px; height: 55px; top: 75%; left: 60%; animation-delay: 4s; }
+.b8 { width: 85px; height: 85px; top: 15%; left: 40%; animation-delay: 6s; }
+.b9 { width: 65px; height: 65px; top: 35%; left: 15%; animation-delay: 1.5s; }
+.b10 { width: 95px; height: 95px; top: 65%; left: 85%; animation-delay: 3.5s; }
+
+
 
 @keyframes floatBubble {
   0% { transform: translateY(0); }
-  50% { transform: translateY(-50px) rotate(20deg); }
+  50% { transform: translateY(-60px) rotate(10deg); }
   100% { transform: translateY(0); }
+}
+
+@keyframes wobble {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03, 0.97); }
+}
+
+@keyframes drift {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(10px); }
+  100% { transform: translateX(0); }
 }
